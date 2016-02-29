@@ -12,7 +12,7 @@
 
 
 
-int bsz = 32;
+int bsz = 8;
 int times = 100000;
 int runtimes = 100;
 
@@ -81,7 +81,7 @@ void test_boost()
 void test_block()
 {
     MemPool       *block = pool_create(bsz,1);
-    clock_t start, end;
+    clock_t       start, end;
     int i , j ;
 
 
@@ -114,8 +114,8 @@ void test_threadpool()
 
 int main(void)
 {
-//    test_boost();
-//    test_block();
+    test_boost();
+    test_block();
     test_threadpool();
 
     return 0;
