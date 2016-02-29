@@ -1,4 +1,12 @@
-﻿#include <stdio.h>
+﻿/*
+ *                 GNU GENERAL PUBLIC LICENSE
+ *                  Version 3, 29 June 2007
+ *                 Copyright (C) 2016 XD.Yang
+ *   Everyone is permitted to copy and distribute verbatim copies
+ *   of this license document, but changing it is not allowed.
+ */
+
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "mpool.h"
