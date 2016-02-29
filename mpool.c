@@ -28,7 +28,6 @@ Block*  pool_create(int bsz, int count)
        *(void**)Inc_Ptr(_Mem , i*realsize + bsz)= Inc_Ptr(_Mem,(i+1)*realsize);
     }
     Line_Append(res->_slots,_Mem);
-//    pthread_mutex_init(&res->_lock,NULL);
     return res;
 }
 void    extend(Block *blk,int sz,int bsz)
@@ -36,7 +35,6 @@ void    extend(Block *blk,int sz,int bsz)
     void *_Mem = NULL;
     int i = 0,realsize = bsz + sizeof(void*);
 
-//    pthread_mutex_lock(& blk->_lock );
     _Mem = calloc(sz,bsz+ sizeof(void*));
 
     Line_Append(blk->_slots,_Mem);
@@ -45,13 +43,11 @@ void    extend(Block *blk,int sz,int bsz)
     {
         *(void**)Inc_Ptr(_Mem , i*realsize + bsz) = Inc_Ptr(_Mem , (i+1) * realsize);
     }
-//    pthread_mutex_unlock(&blk->_lock);
 }
 
 void*   m_malloc(Block* blk)
 {
     void *res = NULL;
-//    pthread_mutex_lock(& blk->_lock );
     res = blk->_first;
     if ( res == NULL )
     {
@@ -63,16 +59,13 @@ void*   m_malloc(Block* blk)
     }
     blk->_first = nextof(blk->_first,blk->_bsz);
     --blk->_size;
-//    pthread_mutex_unlock(&blk->_lock);
     return res;
 }
 
 void m_free(Block* blk, void *ptr)
 {
-//    pthread_mutex_lock(& blk->_lock );
     *(char**)((char*)ptr + blk->_bsz ) = blk->_first;
     blk->_first = ptr;
-//    pthread_mutex_unlock(& blk->_lock );
 }
 
 void    pool_release(Block *blk)
@@ -83,7 +76,6 @@ void    pool_release(Block *blk)
         free(Line_Get(blk->_slots,i));
     free(blk->_slots->_store);
     free(blk->_slots);
-//    pthread_mutex_destroy(&blk->_lock);
 }
 ////////////////////////////////////Don't Use the Code Below////////////////////////////////////////////
 
