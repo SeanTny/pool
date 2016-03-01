@@ -1,4 +1,4 @@
-﻿/*
+/*
  *                 GNU GENERAL PUBLIC LICENSE
  *                  Version 3, 29 June 2007
  *                 Copyright (C) 2016 XD.Yang
@@ -10,8 +10,15 @@
 
 #include <stdint.h>
 
-#include "lib/pthread.h"
 #include "c_list.h"
+#include "m_vector.h"
+
+#ifdef WIN32
+#include "lib/pthread.h"
+#else
+#include <pthread.h>
+#endif
+
 
 #ifdef  __cplusplus
 extern "C"{
@@ -19,9 +26,6 @@ extern "C"{
 
 
 typedef void*   (*task_func)(void*);
-
-typedef LineTable   TaskQueue;
-
 
 typedef struct
 {

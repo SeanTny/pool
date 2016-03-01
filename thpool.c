@@ -1,4 +1,4 @@
-﻿/*
+/*
  *                 GNU GENERAL PUBLIC LICENSE
  *                  Version 3, 29 June 2007
  *                 Copyright (C) 2016 XD.Yang
@@ -9,7 +9,6 @@
 #include <stdio.h>
 
 #include "m_vector.h"
-#include "c_list.h"
 #include "thpool.h"
 
 void m_sleep( long tms )

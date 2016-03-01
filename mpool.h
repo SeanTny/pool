@@ -1,4 +1,4 @@
-﻿/*
+/*
  *                 GNU GENERAL PUBLIC LICENSE
  *                  Version 3, 29 June 2007
  *                 Copyright (C) 2016 XD.Yang
@@ -12,6 +12,7 @@
 #ifdef  __cplusplus
 extern "C"{
 #endif
+
 
 #include <string.h>
 #include <stdlib.h>

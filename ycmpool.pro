@@ -4,10 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-    main.cc \
     mpool.c \
     lib/pthread.c \
-    thpool.c
+    thpool.c \
+    main.c
 
 INCLUDEPATH += "F:\C-C++\hfdslib\include"
 

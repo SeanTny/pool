@@ -1,4 +1,4 @@
-﻿/*
+/*
  *                 GNU GENERAL PUBLIC LICENSE
  *                  Version 3, 29 June 2007
  *                 Copyright (C) 2016 XD.Yang
@@ -10,7 +10,6 @@
 #include <stdlib.h>
 
 #include "mpool.h"
-
 
 #define     Inc_Ptr( PTR,N )            ((char*)PTR+N)
 #define     Dec_Ptr( PTR,N )            ((char*)PTR-N)
