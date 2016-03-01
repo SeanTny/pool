@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2007-2009 Marko Kreen
  *
  * Permission to use, copy, modify, and/or distribute this software for any
@@ -24,6 +24,7 @@
 #ifdef __cplusplus
 extern "C"{
 #endif
+
 
 #include <Windows.h>
 

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Pthreads compat.
  *
  * Copyright (c) 2007-2009 Marko Kreen
