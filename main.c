@@ -14,6 +14,7 @@ int runtimes = 100;
 void test_pool()
 {
     MemPool *pool = pool_create(128,10);
+    char    *cp;
     int     i = 0;
     for ( ; i < 15; ++i )
     {
@@ -22,6 +23,12 @@ void test_pool()
         sprintf(c,"%d\tThis Is My Pool\n",i+1);
         printf(c);
     }
+
+    cp = m_malloc(pool);
+    m_free(pool,&cp);
+    m_free(pool,&cp);
+
+    cp = m_malloc(pool);
 
     pool_release(pool);
 }
@@ -83,7 +90,7 @@ void test_mempool()
     for ( i = 0 ; i < times; ++i)
     {
        void *f = m_malloc(block);
-       m_free(block,f);
+       m_free(block,&f);
     }
     end = clock();
     fprintf(stdout,"Block Pool Time Ellapsed:%d\n",end-start);
@@ -108,6 +115,7 @@ void test_mempool()
 int main(void)
 {
 //    test_boost();
+    test_pool();
     test_mempool();
     test_malloc();
 //    test_threadpool();
