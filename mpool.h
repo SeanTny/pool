@@ -33,7 +33,7 @@ typedef struct
 
 Block*  pool_create(int bsz, int count);
 void*   m_malloc(Block* blk);
-void    m_free(Block* blk, void *ptr);
+void    m_free(Block* blk, void **ptr);
 void    pool_release(Block *blk);
 
 

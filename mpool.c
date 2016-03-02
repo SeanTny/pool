@@ -69,10 +69,13 @@ void*   m_malloc(Block* blk)
     return res;
 }
 
-void m_free(Block* blk, void *ptr)
+void m_free(Block* blk, void **ptr)
 {
-    *(char**)((char*)ptr + blk->_bsz ) = blk->_first;
-    blk->_first = ptr;
+    if (*ptr == NULL) return;
+
+    *(char**)((char*)(*ptr) + blk->_bsz ) = blk->_first;
+    blk->_first = (*ptr);
+    *ptr = NULL;
 }
 
 void    pool_release(Block *blk)
